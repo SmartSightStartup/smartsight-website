@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartSight — Study Smarter. No Screen Required.</title>
+  <meta name="description" content="AI-powered study coaching through Ray-Ban Meta smart glasses. Personalized. Passive. Always on." />
+
+  <!-- Google Fonts: Sora (headings) + Plus Jakarta Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo">SmartSight</a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav__links">
+      <li><a href="#features" class="nav__link">Features</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="#download" class="nav__link nav__link--cta">Download</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <!-- Main headline -->
+        <h1 class="hero__headline">Study Smarter. No Screen Required.</h1>
+
+        <!-- Subheadline -->
+        <p class="hero__subheadline">
+          AI-powered coaching through your glasses. Personalized. Passive. Always on.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero__ctas" id="download">
+          <a href="#download" class="btn-primary">Download App</a>
+          <a href="#features" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Smart glasses illustration with ambient glow -->
+      <div class="hero__glasses">
+        <div class="hero__glow"></div>
+        <!-- Minimal Ray-Ban style smart glasses SVG -->
+        <svg viewBox="0 0 480 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Smart glasses illustration">
+          <!-- Left temple arm -->
+          <path d="M12 90 Q12 88 30 86 L100 82" stroke="#18358C" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <!-- Right temple arm -->
+          <path d="M468 90 Q468 88 450 86 L380 82" stroke="#18358C" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Left lens frame -->
+          <rect x="76" y="50" width="140" height="80" rx="38" ry="38" stroke="#18358C" stroke-width="3.5" fill="none"/>
+          <!-- Right lens frame -->
+          <rect x="264" y="50" width="140" height="80" rx="38" ry="38" stroke="#18358C" stroke-width="3.5" fill="none"/>
+
+          <!-- Bridge -->
+          <path d="M216 78 Q240 68 264 78" stroke="#18358C" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Left lens subtle tint -->
+          <rect x="80" y="54" width="132" height="72" rx="34" ry="34" fill="#18358C" opacity="0.04"/>
+          <!-- Right lens subtle tint -->
+          <rect x="268" y="54" width="132" height="72" rx="34" ry="34" fill="#18358C" opacity="0.04"/>
+
+          <!-- Camera indicator dot on right lens (smart glasses signature) -->
+          <circle cx="390" cy="66" r="4" fill="#F2911B" opacity="0.9"/>
+          <!-- Subtle LED ring around camera -->
+          <circle cx="390" cy="66" r="7" stroke="#F2911B" stroke-width="1.5" fill="none" opacity="0.4"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FEATURES SECTION
+         ============================================ -->
+    <section class="features" id="features">
+      <h2 class="section-heading">Built for how you actually study</h2>
+
+      <div class="features__grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <span class="feature-card__icon">
+            <!-- Camera/eye SVG icon -->
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="15" stroke="#18358C" stroke-width="2"/>
+              <circle cx="18" cy="18" r="7" stroke="#F2911B" stroke-width="2"/>
+              <circle cx="18" cy="18" r="2.5" fill="#18358C"/>
+            </svg>
+          </span>
+          <h3 class="feature-card__title">Passive Capture</h3>
+          <p class="feature-card__desc">Glasses quietly photograph your notes as you study.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <span class="feature-card__icon">
+            <!-- Brain/AI SVG icon -->
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 4C12 4 8 9 8 14c0 4 2 7 5 9v5a2 2 0 002 2h6a2 2 0 002-2v-5c3-2 5-5 5-9 0-5-4-10-10-10z" stroke="#18358C" stroke-width="2" fill="none"/>
+              <path d="M14 30h8M15 33h6" stroke="#F2911B" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="18" cy="14" r="3" fill="#F2911B" opacity="0.3"/>
+            </svg>
+          </span>
+          <h3 class="feature-card__title">AI Coaching</h3>
+          <p class="feature-card__desc">Get told exactly what to do next, personalized to your gaps.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <span class="feature-card__icon">
+            <!-- Cards/quiz SVG icon -->
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="8" width="18" height="22" rx="3" stroke="#18358C" stroke-width="2" fill="none"/>
+              <rect x="12" y="4" width="18" height="22" rx="3" stroke="#F2911B" stroke-width="2" fill="none" opacity="0.5"/>
+              <line x1="10" y1="16" x2="20" y2="16" stroke="#18358C" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="10" y1="20" x2="17" y2="20" stroke="#18358C" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </span>
+          <h3 class="feature-card__title">Flashcard + Quiz Gen</h3>
+          <p class="feature-card__desc">Auto-generated from your actual study material.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <span class="feature-card__icon">
+            <!-- Headphones/audio SVG icon -->
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 20v-4a10 10 0 0120 0v4" stroke="#18358C" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <rect x="4" y="18" width="6" height="10" rx="3" fill="#F2911B" opacity="0.3" stroke="#18358C" stroke-width="2"/>
+              <rect x="26" y="18" width="6" height="10" rx="3" fill="#F2911B" opacity="0.3" stroke="#18358C" stroke-width="2"/>
+            </svg>
+          </span>
+          <h3 class="feature-card__title">Screen-Free Flow</h3>
+          <p class="feature-card__desc">Audio coaching so you never break focus.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PHONE APP SHOWCASE SECTION
+         ============================================ -->
+    <section class="app-showcase" id="app">
+      <div class="app-showcase__inner">
+
+        <!-- Text + floating chips -->
+        <div class="app-showcase__text">
+          <h2 class="app-showcase__headline">Meet Luna.AI</h2>
+          <p class="app-showcase__sub">Your AI coach, always in your pocket</p>
+
+          <div class="app-showcase__chips">
+            <span class="chip">Streak Tracking 🔥</span>
+            <span class="chip">Achievement Badges 🏆</span>
+            <span class="chip">Score Heatmap 📅</span>
+          </div>
+        </div>
+
+        <!-- Phone mockup -->
+        <div class="app-showcase__phone-wrapper">
+          <div class="phone-frame">
+            <div class="phone-frame__notch"></div>
+            <div class="phone-frame__screen">
+              <!-- INSERT APP SCREENSHOT HERE — replace background-color with your image -->
+              <!-- Example: set background on .phone-frame__screen to url('screenshot.png') center/cover -->
+            </div>
+            <div class="phone-frame__bar"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">SmartSight</span>
+      <ul class="footer__links">
+        <li><a href="index.html" class="footer__link">Home</a></li>
+        <li><a href="#features" class="footer__link">Features</a></li>
+        <li><a href="about.html" class="footer__link">About</a></li>
+      </ul>
+      <p class="footer__copy">&copy; 2026 SmartSight. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

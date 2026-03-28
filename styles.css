@@ -1,0 +1,795 @@
+/* ============================================
+   SmartSight — Global Styles
+   Minimal, premium, futuristic marketing site
+   ============================================ */
+
+/* --- Brand Color Tokens --- */
+:root {
+  --bg-primary: #D5E0F5;
+  --bg-deeper: #C8D8F2;
+  --text-primary: #18358C;
+  --accent-orange: #F2911B;
+  --accent-orange-deep: #F25C05;
+  --white: #FFFFFF;
+  --navy: #18358C;
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --shadow-soft: 0 8px 32px rgba(24, 53, 140, 0.10);
+  --shadow-card: 0 4px 24px rgba(24, 53, 140, 0.08);
+  --shadow-phone: 0 24px 64px rgba(24, 53, 140, 0.18);
+  --radius-card: 20px;
+  --radius-pill: 999px;
+  --transition-base: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Frosted glass effect on scroll */
+.nav.scrolled {
+  background: rgba(213, 224, 245, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 24px rgba(24, 53, 140, 0.06);
+}
+
+.nav__logo {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav__link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: opacity var(--transition-fast);
+  position: relative;
+}
+
+.nav__link:hover {
+  opacity: 0.7;
+}
+
+/* Orange pill "Download" button in nav */
+.nav__link--cta {
+  background: var(--accent-orange);
+  color: var(--white);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.nav__link--cta:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(242, 145, 27, 0.35);
+}
+
+/* Hamburger (mobile) */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 2px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* Hamburger active state */
+.nav__hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav__hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem 2rem 4rem;
+  overflow: hidden;
+}
+
+/* Subtle grain texture overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+/* Stagger-in animation for hero elements */
+.hero__headline,
+.hero__subheadline,
+.hero__ctas,
+.hero__glasses {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.hero__headline {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  animation-delay: 0.1s;
+}
+
+.hero__subheadline {
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 400;
+  opacity: 0;
+  color: var(--text-primary);
+  max-width: 540px;
+  margin: 0 auto 2rem;
+  animation-delay: 0.25s;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation-delay: 0.4s;
+}
+
+/* Primary CTA — orange pill */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-deep));
+  color: var(--white);
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-pill);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(242, 92, 5, 0.35);
+}
+
+/* Secondary CTA — ghost/outline */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--navy);
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-pill);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid var(--navy);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Smart glasses illustration */
+.hero__glasses {
+  position: relative;
+  margin-top: 3rem;
+  animation-delay: 0.55s;
+}
+
+.hero__glasses svg {
+  width: clamp(260px, 40vw, 420px);
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Ambient orange glow behind glasses */
+.hero__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 160px;
+  background: radial-gradient(ellipse, rgba(242, 145, 27, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse-glow 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Scroll-driven parallax fade for hero */
+.hero.fading .hero__content {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hero.fading .hero__headline {
+  opacity: 0 !important;
+  transform: translateY(-30px) scale(0.96) !important;
+}
+
+.hero.fading .hero__subheadline {
+  opacity: 0 !important;
+  transform: translateY(-20px) !important;
+}
+
+.hero.fading .hero__ctas {
+  opacity: 0 !important;
+  transform: translateY(-10px) !important;
+}
+
+.hero.fading .hero__glasses svg {
+  opacity: 0.2;
+  transform: scale(1.1);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ============================================
+   FEATURES SECTION
+   ============================================ */
+
+.features {
+  padding: 6rem 2rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  text-align: center;
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.02em;
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Glassmorphism feature card */
+.feature-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+
+  /* Animation initial state */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-fast);
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.feature-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-card__title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card__desc {
+  font-size: 0.92rem;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* ============================================
+   PHONE APP SHOWCASE SECTION
+   ============================================ */
+
+.app-showcase {
+  background: var(--bg-deeper);
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft gradient transition from features to showcase */
+.app-showcase::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--bg-primary), var(--bg-deeper));
+  pointer-events: none;
+}
+
+.app-showcase__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.app-showcase__text {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
+}
+
+.app-showcase__headline {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.app-showcase__sub {
+  font-size: 1.1rem;
+  opacity: 0.75;
+  margin-bottom: 2.5rem;
+}
+
+/* Floating callout chips */
+.app-showcase__chips {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+  width: fit-content;
+
+  /* Animation initial state */
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.chip.visible {
+  opacity: 1;
+  transform: translateX(0);
+  animation: bob 3s ease-in-out infinite;
+}
+
+.chip:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.chip:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* Phone mockup container */
+.app-showcase__phone-wrapper {
+  flex: 0 0 auto;
+
+  /* Animation initial state */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.app-showcase__phone-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(-5deg);
+}
+
+/* CSS-drawn iPhone-style phone frame */
+.phone-frame {
+  position: relative;
+  width: 260px;
+  height: 530px;
+  border: 4px solid var(--navy);
+  border-radius: 44px;
+  background: var(--white);
+  box-shadow: var(--shadow-phone);
+  overflow: hidden;
+  transform: rotate(-5deg);
+}
+
+/* Dynamic island notch */
+.phone-frame__notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 24px;
+  background: var(--navy);
+  border-radius: 14px;
+  z-index: 2;
+}
+
+/* Phone screen interior */
+.phone-frame__screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 40px;
+  /* INSERT APP SCREENSHOT HERE — replace background-color with your image */
+  /* Example: background: url('your-screenshot.png') center/cover no-repeat; */
+  background-color: #F0F3FA;
+}
+
+/* Bottom bar indicator */
+.phone-frame__bar {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--navy);
+  border-radius: 4px;
+  opacity: 0.3;
+  z-index: 2;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 3rem 2rem;
+}
+
+.footer__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer__logo {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.footer__links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer__link {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.footer__link:hover {
+  opacity: 1;
+}
+
+.footer__copy {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+
+.about-hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+}
+
+.about-hero__heading {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.about-hero__sub {
+  font-size: 1.15rem;
+  opacity: 0.7;
+}
+
+.about-content {
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.about-content__placeholder {
+  font-size: 1.2rem;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+/* Fade up — used for hero stagger */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating glasses animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Pulsing ambient glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+/* Bobbing chips */
+@keyframes bob {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(0) translateY(-6px);
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+/* Tablet breakpoint */
+@media (max-width: 900px) {
+  .features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .app-showcase__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .app-showcase__text {
+    text-align: center;
+  }
+
+  .app-showcase__chips {
+    align-items: center;
+  }
+}
+
+/* Mobile breakpoint — 375px+ */
+@media (max-width: 600px) {
+  .nav {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .nav__links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(213, 224, 245, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 999;
+  }
+
+  .nav__links.open {
+    display: flex;
+  }
+
+  .nav__link {
+    font-size: 1.4rem;
+  }
+
+  .nav__hamburger {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .hero {
+    padding: 6rem 1.25rem 3rem;
+  }
+
+  .hero__headline {
+    font-size: 2.2rem;
+  }
+
+  .features {
+    padding: 4rem 1.25rem 3rem;
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .app-showcase {
+    padding: 4rem 1.25rem;
+  }
+
+  .phone-frame {
+    width: 220px;
+    height: 450px;
+    border-radius: 36px;
+  }
+
+  .phone-frame__screen {
+    border-radius: 32px;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__links {
+    justify-content: center;
+  }
+}
