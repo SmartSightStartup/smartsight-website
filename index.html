@@ -22,6 +22,7 @@
     <a href="index.html" class="nav__logo">SmartSight</a>
 
     <div class="nav__right">
+      <span class="nav__waitlist">Join Waiting List</span>
       <a href="#contact" class="nav__contact">Contact Us</a>
     </div>
   </nav>
@@ -35,6 +36,9 @@
       <!-- Glowing radial circle — mymind-inspired -->
       <div class="hero__glow-circle"></div>
 
+      <!-- Glasses watermark — centred in halo -->
+      <img src="assets/glass.png" alt="" class="hero__glasses-bg" aria-hidden="true"/>
+
       <div class="hero__content">
         <!-- Main headline — two lines only -->
         <h1 class="hero__headline">
@@ -47,39 +51,21 @@
           Get told <span class="pill-tag">what to do next.</span>
         </p>
 
-        <!-- Download buttons — iOS active, Android greyed out -->
+        <!-- CTA buttons -->
         <div class="hero__ctas" id="download">
-          <a href="#" class="btn-download">
+          <button class="btn-waitlist btn-waitlist--hero">
+            <span class="btn-waitlist__shimmer"></span>
+            <span class="btn-waitlist__text">✦ Join the Waiting List</span>
+          </button>
+          <span class="btn-download btn-download--muted">
             <svg viewBox="0 0 14 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M11.8 8.4c0-2.1 1.7-3.1 1.8-3.2-1-1.5-2.5-1.7-3-1.7-1.3-.1-2.5.8-3.1.8-.7 0-1.7-.7-2.8-.7C3.2 3.6 1.5 4.7 1.5 8.5c0 1.2.4 2.4 1 3.4.7 1 1.4 2 2.4 2 1 0 1.3-.6 2.5-.6s1.5.6 2.5.6 1.7-1 2.3-2c.5-.7.7-1.4.7-1.4 0 0-1.1-.5-1.1-2.1zM9.8 2.4c.5-.6.8-1.5.7-2.4C9.7 0 8.7.6 8.1 1.2c-.5.6-.9 1.5-.8 2.3.9.1 1.9-.4 2.5-1.1z"/>
             </svg>
-            Download for iPhone
-          </a>
-          <span class="btn-download btn-download--muted">
-            <svg viewBox="0 0 14 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1.2v13.6c0 .4.3.6.6.4l10.8-6.8c.3-.2.3-.6 0-.8L1.6.8C1.3.6 1 .8 1 1.2z"/>
-            </svg>
-            Android — coming soon
+            iOS App — coming soon
           </span>
         </div>
 
-        <!-- Awards — inside hero -->
-        <div class="hero__awards">
 
-          <!-- Award 1: MIT Reality Hack Grand Prize -->
-          <div class="award">
-            <p class="award__text"><strong>2026 Grand Prize Winner</strong></p>
-            <img src="realityhack.png" alt="MIT Reality Hack logo" class="award__logo award__logo--hack" />
-          </div>
-
-          <!-- Award 2: Best Use of Meta Wearables -->
-          <div class="award">
-            <p class="award__text"><strong>Best Use of Meta Wearables<br/>Device Access Toolkit</strong></p>
-            <p class="award__backed">backed by</p>
-            <img src="Meta-Logo.png" alt="Meta logo" class="award__logo award__logo--meta" />
-          </div>
-
-        </div>
       </div>
     </section>
 
@@ -104,9 +90,6 @@
           </p>
         </div>
 
-        <div class="fade-up" data-delay="500">
-          <a href="#download" class="btn-primary">Download the App</a>
-        </div>
       </div>
     </section>
 
@@ -202,7 +185,7 @@
         <div class="app-showcase__phone-wrapper">
           <div class="phone-frame">
             <div class="phone-frame__notch"></div>
-            <div class="phone-frame__screen" style="background: url('Screenshot 2026-03-29 at 00.08.58.png') center/cover no-repeat;">
+            <div class="phone-frame__screen" style="background: url('assets/Screenshot 2026-03-29 at 00.08.58.png') center/cover no-repeat;">
             </div>
             <div class="phone-frame__bar"></div>
           </div>
@@ -257,9 +240,36 @@
     <section class="about-us" id="about">
       <div class="about-us__inner">
         <p class="section-label fade-up">About Us</p>
-        <h2 class="about-us__headline fade-up" data-delay="80">The team behind SmartSight</h2>
-        <!-- PLACEHOLDER: Add your about us content below -->
-        <p class="about-us__placeholder fade-up" data-delay="160">Our story coming soon.</p>
+
+        <div class="about-us__layout">
+
+          <!-- Left: photo + caption -->
+          <div class="about-us__image-wrap fade-up" data-delay="80">
+            <img src="assets/group.jpeg" alt="The SmartSight team at MIT Reality Hack 2026" class="about-us__image" />
+            <p class="about-us__caption">
+              From left to right:
+              <a href="https://www.linkedin.com/in/jaydendecambre/" target="_blank" rel="noopener">Jayden Decambre</a>,
+              <a href="https://www.linkedin.com/in/dongckim99/" target="_blank" rel="noopener">Dongchan Kim</a>,
+              <a href="https://www.linkedin.com/in/hyunseok-hwang/" target="_blank" rel="noopener">Hyunseok Hwang</a>,
+              <a href="https://www.linkedin.com/in/xiaofan-sylvan-shen/" target="_blank" rel="noopener">Xiaofan (Sylvan) Shen</a>,
+              <a href="https://www.linkedin.com/in/vivian-xin-shu/" target="_blank" rel="noopener">Vivian Xin Shu</a>
+            </p>
+          </div>
+
+          <!-- Right: text -->
+          <div class="about-us__body">
+            <p class="about-us__para fade-up" data-delay="100">
+              SmartSight's team first came together during MIT Reality Hack 2026, where our prototype using Meta Ray-Ban AI glasses received the Grand Prize and the Meta Wearables Track Award.
+            </p>
+            <p class="about-us__para fade-up" data-delay="200">
+              Our team is interdisciplinary, bringing together expertise in AI systems, learning science, immersive technologies, and product design. Members include Stanford Computer Science and Harvard LDIT graduate alumni, with industry experience spanning AWS, Bloomberg, and AI/XR startups. This combination allows us to translate research insights into practical, buildable products.
+            </p>
+            <p class="about-us__para fade-up" data-delay="300">
+              Many of us personally experienced studying with limited feedback and support. SmartSight grew from that shared experience and a simple belief: wearable AI can deliver the kind of personalized guidance that once required expensive tutoring. Our mission is to build a scalable tool that expands access to effective learning support for everyone.
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -269,8 +279,7 @@
          ============================================ -->
     <section class="contact" id="contact">
       <div class="contact__inner">
-        <p class="section-label fade-up">Contact Us</p>
-        <h2 class="contact__headline fade-up" data-delay="80">Get in touch</h2>
+        <h2 class="contact__headline fade-up">Get in touch</h2>
         <p class="contact__text fade-up" data-delay="160">
           Have questions, feedback, or just want to say hello?
         </p>
