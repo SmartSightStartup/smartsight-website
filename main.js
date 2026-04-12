@@ -102,4 +102,35 @@ document.addEventListener('DOMContentLoaded', () => {
     chips.forEach(chip => chipObserver.observe(chip));
   }
 
+
+  /* ------------------------------------------
+     WAITLIST FORM — AJAX submit via Formspree
+     ------------------------------------------ */
+  const waitlistForm = document.querySelector('.waitlist__form');
+  const waitlistSuccess = document.getElementById('waitlist-success');
+
+  if (waitlistForm && waitlistSuccess) {
+    waitlistForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(waitlistForm);
+
+      try {
+        const res = await fetch(waitlistForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          waitlistForm.style.display = 'none';
+          waitlistSuccess.classList.add('visible');
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      } catch {
+        alert('Network error. Please try again.');
+      }
+    });
+  }
+
 });

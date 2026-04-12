@@ -969,11 +969,154 @@ body.loaded .hero__ctas     { opacity: 1; transform: translateY(3vh); transition
 
 
 /* ============================================
+   WAITLIST SECTION
+   ============================================ */
+
+.waitlist {
+  background: var(--bg);
+  padding: 6rem 2rem;
+}
+
+.waitlist__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.waitlist__headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.waitlist__sub {
+  font-size: 1.05rem;
+  opacity: 0.6;
+  margin-bottom: 2.5rem;
+}
+
+.waitlist__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.waitlist__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.waitlist__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.waitlist__field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  opacity: 0.7;
+}
+
+.waitlist__optional {
+  font-weight: 400;
+  opacity: 0.5;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.waitlist__field input,
+.waitlist__field textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.55);
+  border: 1.5px solid rgba(24, 53, 140, 0.18);
+  border-radius: 12px;
+  padding: 0.8rem 1.1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--navy);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  resize: none;
+}
+
+.waitlist__field input::placeholder,
+.waitlist__field textarea::placeholder {
+  opacity: 0.4;
+}
+
+.waitlist__field input:focus,
+.waitlist__field textarea:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(242, 145, 27, 0.12);
+}
+
+.waitlist__submit {
+  position: relative;
+  overflow: hidden;
+  align-self: center;
+  margin-top: 0.5rem;
+  padding: 0.9rem 2.8rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--white);
+  cursor: pointer;
+  background:
+    linear-gradient(135deg, var(--orange), var(--orange-deep)) padding-box,
+    linear-gradient(135deg, #fff, var(--orange), var(--orange-deep), #fff) border-box;
+  background-size: 100% 100%, 300% 100%;
+  animation: border-shift 3s linear infinite, hero-glow 2.5s ease-in-out infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.waitlist__submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(242, 145, 27, 0.35);
+}
+
+.waitlist__submit .btn-waitlist__shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer-sweep 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.waitlist__success {
+  display: none;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--orange-deep);
+}
+
+.waitlist__success.visible {
+  display: block;
+}
+
+
+/* ============================================
    CONTACT US SECTION
    ============================================ */
 
 .contact {
-  background: var(--bg);
+  background: var(--bg-deeper);
   padding: 5rem 2rem;
   text-align: center;
 }
