@@ -240,6 +240,7 @@ img {
 
 /* Stagger-in: elements start hidden, JS adds .loaded to body */
 .hero__headline,
+.hero__subtitle,
 .hero__tags,
 .hero__ctas {
   opacity: 0;
@@ -248,6 +249,7 @@ img {
 }
 
 body.loaded .hero__headline { opacity: 1; transform: translateY(-3vh); transition-delay: 0s; }
+body.loaded .hero__subtitle { opacity: 1; transform: translateY(0); transition-delay: 0.06s; }
 body.loaded .hero__tags     { opacity: 1; transform: translateY(3vh); transition-delay: 0.12s; }
 body.loaded .hero__ctas     { opacity: 1; transform: translateY(3vh); transition-delay: 0.24s; }
 
@@ -256,7 +258,15 @@ body.loaded .hero__ctas     { opacity: 1; transform: translateY(3vh); transition
   font-size: clamp(3.4rem, 8vw, 6.2rem);
   letter-spacing: -0.025em;
   line-height: 1.08;
-  margin-bottom: 3rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 500;
+  color: var(--navy);
+  opacity: 0.75;
+  margin-bottom: 2.4rem;
 }
 
 /* Inline pill tags — mymind style */
