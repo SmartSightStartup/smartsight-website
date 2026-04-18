@@ -125,10 +125,26 @@ img {
 }
 
 .nav__logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.nav__logo-img {
+  height: 73px;
+  width: auto;
+  display: block;
+  filter:
+    drop-shadow(0 0 4px rgba(242, 145, 27, 0.2))
+    drop-shadow(0 0 10px rgba(242, 92, 5, 0.1));
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.nav__logo:hover .nav__logo-img {
+  transform: scale(1.06);
+  filter:
+    drop-shadow(0 0 6px rgba(242, 145, 27, 0.3))
+    drop-shadow(0 0 14px rgba(242, 92, 5, 0.18));
 }
 
 
