@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — SmartSight</title>
+  <meta name="description" content="How the SmartSight app collects, uses and deletes your data." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo">SmartSight</a>
+    <div class="nav__right"></div>
+  </nav>
+
+  <main>
+    <section class="about-hero legal-hero">
+      <h1 class="about-hero__heading">Privacy Policy</h1>
+      <p class="about-hero__sub">Effective November 23, 2026</p>
+    </section>
+
+    <article class="legal">
+      <p>SmartSight is an AI study coach for iPhone that works with Meta Ray-Ban smart glasses or the phone camera. This policy explains what the SmartSight app and its servers collect, why, who processes it, and how you can delete it.</p>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Account details.</strong> Your email address and, if you provide it, your name. You sign in with Apple, Google, or an email and password. Passwords are stored only as a one-way hash.</li>
+        <li><strong>Study photos.</strong> Photos you capture during a study session, from your glasses or your phone camera. They are uploaded to our servers so we can recognise what you are studying.</li>
+        <li><strong>Study activity.</strong> Sessions and their timing, the topics detected in your photos, bookmarks and notes, quizzes and flashcards with your answers, and your chats with the coach.</li>
+        <li><strong>Study profile.</strong> Information you choose to give the coach, such as your exam, exam date, target score and weekly study hours.</li>
+        <li><strong>Voice.</strong> When you talk to the voice coach, Luna, your microphone audio is streamed to Google's Gemini Live service for a real-time reply. SmartSight's servers do not record or store this audio. Wake-word detection (“Hey Luna”) uses Apple's speech recognition, on the device where supported.</li>
+        <li><strong>On your phone.</strong> The app keeps recent study photos and their details on your phone to help troubleshoot problems. It removes them after about seven days, keeps at most 500, and they are removed when you delete the app.</li>
+      </ul>
+      <p>SmartSight does not show ads, does not use advertising trackers, and does not sell your data.</p>
+
+      <h2>How we use it</h2>
+      <ul>
+        <li>To classify your study photos by subject and topic and track time spent on each.</li>
+        <li>To generate quizzes, flashcards, session summaries and coaching for you.</li>
+        <li>To keep you signed in and protect the service from abuse.</li>
+      </ul>
+
+      <h2>Who processes it</h2>
+      <ul>
+        <li><strong>Supabase</strong> stores the database and your study photos.</li>
+        <li><strong>Render</strong> hosts the SmartSight API servers.</li>
+        <li><strong>Google (Gemini)</strong> analyses your study photos and runs the voice coach. <strong>Google</strong> and <strong>OpenAI</strong> generate quizzes, flashcards, summaries and coach replies from your study activity. Both process this data under their API terms.</li>
+        <li><strong>Apple</strong> and <strong>Google</strong> handle sign-in when you choose them.</li>
+        <li><strong>Meta</strong>'s Wearables SDK connects the app to your glasses. Photos taken through the glasses go from the glasses to the app and then to us. The SDK may also send Meta information about the connection between your glasses and the app, under the <a href="https://www.meta.com/legal/privacy-policy/">Meta Privacy Policy</a>.</li>
+      </ul>
+
+      <h2>Retention and deletion</h2>
+      <p>We keep your data while your account exists. You can delete your account at any time in the app under <strong>Profile → Delete Account</strong>. This permanently deletes your account, your study photos and all associated study data from our servers. Signing out or deleting the app does not delete your account. You can also email us to request deletion.</p>
+
+      <h2>Security</h2>
+      <p>All traffic between the app and our servers is encrypted with HTTPS. No system is perfectly secure, so please avoid capturing material you would not want stored, such as passwords or other people's private information.</p>
+
+      <h2>Children</h2>
+      <p>SmartSight is not directed at children under 13, and we do not knowingly collect their data.</p>
+
+      <h2>Beta testing</h2>
+      <p>If you test SmartSight through Apple's TestFlight, Apple also shares crash reports and the feedback you submit with us, under Apple's own privacy policy.</p>
+
+      <h2>Changes</h2>
+      <p>If we change this policy we will update the date above and, for significant changes, tell you in the app.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or deletion requests: <a href="mailto:hello@getsmartsight.com">hello@getsmartsight.com</a></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__row">
+        <span class="footer__logo">SmartSight</span>
+        <ul class="footer__links">
+          <li><a href="index.html#features" class="footer__link">Features</a></li>
+          <li><a href="index.html#about" class="footer__link">About</a></li>
+          <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+          <li><a href="privacy.html" class="footer__link">Privacy</a></li>
+        </ul>
+      </div>
+      <p class="footer__copy">&copy; 2026 SmartSight. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
