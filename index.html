@@ -3,347 +3,492 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartSight — You Study, We Coach.</title>
-  <meta name="description" content="AI-powered study coaching through Ray-Ban Meta smart glasses. Personalized. Passive. Always on." />
+  <title>SmartSight: keep learning, we handle the rest</title>
+  <meta name="description" content="A hands-free study coach built on smart glasses that turns your study activity into personalized guidance. Your photos never leave your phone." />
+  <meta property="og:title" content="SmartSight: keep learning, we handle the rest" />
+  <meta property="og:description" content="A hands-free study coach built on smart glasses. Your photos never leave your phone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getsmartsight.com/" />
+  <meta name="theme-color" content="#F3F3F5" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-  <!-- Google Fonts: Playfair Display (headings) + Plus Jakarta Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ============================================
-       NAVIGATION
-       ============================================ -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a href="index.html" class="nav__logo" aria-label="SmartSight">
-      <img src="assets/logo.png" alt="SmartSight" class="nav__logo-img" />
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <a href="index.html" class="nav__brand" aria-label="SmartSight home">
+      <img src="assets/logo-mark.png" alt="" width="22" height="34" />
+      <span>SmartSight</span>
     </a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#features">Features</a>
+      <a href="#status">Pilot</a>
+      <a href="#team">Team</a>
+    </nav>
+    <a href="#launch" class="btn btn--small">Join the launch list</a>
+  </header>
 
-    <div class="nav__right">
-      <a href="#waitlist" class="nav__waitlist">Join Waiting List</a>
-      <a href="#contact" class="nav__contact">Contact Us</a>
-    </div>
-  </nav>
+  <main id="main">
 
-  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__copy">
+        <h1>Keep learning.<br /><span class="hero__soft nowrap">We handle the rest.</span></h1>
+        <p class="hero__lede">
+          A hands-free study coach built on <span class="nowrap"><!-- Lucide "glasses" icon, ISC License, Copyright (c) Lucide Contributors --><svg class="glasses-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2"/><path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2"/></svg>smart glasses</span> that turns your study activity into
+          personalized guidance.
+        </p>
+        <div class="hero__actions">
+          <a href="#launch" class="btn">Join the launch list</a>
+          <!-- TestFlight: replace REPLACE_ME with the public link code (two places on this page) -->
+          <a href="https://testflight.apple.com/join/REPLACE_ME" class="btn btn--ghost" target="_blank" rel="noopener">Try it on TestFlight</a>
+        </div>
+        <p class="hero__platform"><svg class="" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>An iPhone app. Needs iOS 17 or later.</p>
+        <p class="hero__note">
+          <span class="dot dot--done" aria-hidden="true"></span>
+          Pilot complete with 25 MCAT students. Public beta closed. The App Store launch is next.
+        </p>
+      </div>
 
-    <!-- ============================================
-         HERO SECTION
-         ============================================ -->
-    <section class="hero" id="hero">
-      <!-- Glowing radial circle — mymind-inspired -->
-      <div class="hero__glow-circle"></div>
+      <div class="hero__phones" aria-label="Screens from the SmartSight iPhone app">
+        <figure class="phone hero__phone hero__phone--left">
+          <img src="assets/screens/home.webp?v=2" width="660" height="1435" alt="Home screen: today's plan and how the last plan went" />
+        </figure>
+        <figure class="phone hero__phone hero__phone--center">
+          <img src="assets/screens/luna-time.webp?v=2" width="660" height="1435" alt="Luna pointing out that the weakest subjects get the least study time, with a card of the last 7 days" />
+        </figure>
+        <figure class="phone hero__phone hero__phone--right">
+          <img src="assets/screens/vault.webp?v=2" width="660" height="1435" alt="Knowledge Vault: each subject with how much is covered and time studied" />
+        </figure>
+      </div>
+    </section>
 
-      <!-- Glasses watermark — centred in halo -->
-      <img src="assets/glass.png" alt="" class="hero__glasses-bg" aria-hidden="true"/>
 
-      <div class="hero__content">
-        <!-- Main headline — two lines only -->
-        <h1 class="hero__headline">
-          You study,<br/>we coach.
-        </h1>
+    <!-- THESIS -->
+    <section class="band band--green" id="why">
+      <div class="wrap thesis">
+        <div class="thesis__text">
+          <h2 class="thesis__title">A coach is only as good as what it can see.</h2>
+          <p class="thesis__lede">
+            Most study tools only see what you type into them, so their advice is based on a fraction of your work.
+          </p>
+          <p class="thesis__lede">
+            SmartSight logs what you study on its own: every page, every topic, every hour, and how you score afterwards.
+            With the whole picture, it can tell you what to work on next, and why.
+          </p>
+        </div>
 
-        <p class="hero__subtitle">SmartSight is a hands-free study coach that works through smart glasses</p>
+        <div class="ask" id="ask">
+          <div class="ask__chips" role="group" aria-label="Ask Luna a question">
+            <button type="button" class="ask__chip" data-ask="today" aria-pressed="true">What should I study today?</button>
+            <button type="button" class="ask__chip" data-ask="week" aria-pressed="false">Recap last week</button>
+            <button type="button" class="ask__chip" data-ask="best" aria-pressed="false">When do I study best?</button>
+            <button type="button" class="ask__chip" data-ask="explain" aria-pressed="false">Explain the chain rule</button>
+            <button type="button" class="ask__chip" data-ask="plan" aria-pressed="false">Plan my Physics exam</button>
+          </div>
 
-        <!-- Inline pill tags — mymind style -->
-        <p class="hero__tags">
-          Capture your <span class="pill-tag">study sessions</span> hands-free.
-          Get told <span class="pill-tag">what to do next.</span>
+          <div class="chat">
+            <div class="chat__head">
+              <span class="chat__avatar" aria-hidden="true"></span>
+              <span><b>Luna</b><small>Your study coach</small></span>
+            </div>
+            <div class="chat__body" id="ask-body" aria-live="polite">
+              <p class="chat__you">What should I work on today?</p>
+              <p class="chat__luna">Start with Chemistry: you haven't reviewed it in two weeks and it only got 20 minutes this week, so it's starting to fade. Then pick up Calculus where you stopped last night, while it's fresh, and finish with a quick Biology check-in.</p>
+              <div class="gen">
+                <p class="gen__title">Today's plan</p>
+                <ul class="gen__tasks">
+                  <li><span class="gen__dot" aria-hidden="true"></span><span class="gen__task"><b>Review Chemistry</b><small>Not reviewed in 2 weeks · 30 min</small></span><span class="gen__btn">Start session</span></li>
+                  <li><span class="gen__dot" aria-hidden="true"></span><span class="gen__task"><b>Calculus: implicit differentiation</b><small>Where you stopped last night · 40 min</small></span><span class="gen__btn">Start session</span></li>
+                  <li><span class="gen__dot" aria-hidden="true"></span><span class="gen__task"><b>Biology check-in</b><small>3 new topics this week, test them · 10 min</small></span><span class="gen__btn">Test me</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p class="said__note">Luna answers with cards built from your own study sessions. Sample student shown.</p>
+
+          <template data-ask="week">
+            <p class="chat__you">Recap last week for me.</p>
+            <p class="chat__luna">A solid week: 10 h 50 min across 9 sessions on five days. History took most of it, Biology moved fastest, and Chemistry barely got a look, so it's first on today's plan.</p>
+            <div class="gen">
+              <p class="gen__title">Last week</p>
+              <ul class="gen__bars gen__bars--tight">
+                <li><span class="gen__row"><b>History</b><span>6 h</span></span><span class="gen__bar"><i style="--v: 100%"></i></span><small>First World War, Treaty of Versailles</small></li>
+                <li><span class="gen__row"><b>Calculus</b><span>2 h 40 min</span></span><span class="gen__bar"><i style="--v: 44%"></i></span><small>Derivatives, chain rule</small></li>
+                <li><span class="gen__row"><b>Biology</b><em class="is-good">Fastest</em><span>1 h 50 min</span></span><span class="gen__bar"><i style="--v: 31%"></i></span><small>Respiration, photosynthesis, mitosis</small></li>
+                <li><span class="gen__row"><b>Chemistry</b><em>Low</em><span>20 min</span></span><span class="gen__bar"><i style="--v: 6%"></i></span><small>Nothing new</small></li>
+              </ul>
+            </div>
+          </template>
+
+          <template data-ask="explain">
+            <p class="chat__you">Explain the chain rule again.</p>
+            <p class="chat__luna">Sure. You read about it in your last two Calculus sessions, so here it is in four steps, using the same kind of example as your textbook.</p>
+            <div class="gen">
+              <p class="gen__title">The chain rule</p>
+              <ol class="gen__steps">
+                <li>Spot the function inside another function, like the x² inside sin(x²).</li>
+                <li>Differentiate the outside and leave the inside alone: cos(x²).</li>
+                <li>Multiply by the derivative of the inside: 2x.</li>
+                <li>Put them together: the derivative of sin(x²) is 2x · cos(x²).</li>
+              </ol>
+              <p class="gen__actions"><span class="gen__btn">Quiz me on this</span><span class="gen__btn gen__btn--quiet">Make flashcards</span></p>
+            </div>
+          </template>
+
+          <template data-ask="best">
+            <p class="chat__you">When do I study best?</p>
+            <p class="chat__luna">Mornings. Your sessions before noon last 50 minutes on average; after 9 pm they're down to 15. Try putting Chemistry in the morning.</p>
+            <div class="gen">
+              <p class="gen__title">Average session, last 30 days</p>
+              <ul class="gen__bars">
+                <li><span class="gen__row"><b>Morning</b><em class="is-good">Best</em><span>50 min</span></span><span class="gen__bar"><i style="--v: 100%"></i></span></li>
+                <li><span class="gen__row"><b>Afternoon</b><span>35 min</span></span><span class="gen__bar"><i style="--v: 70%"></i></span></li>
+                <li><span class="gen__row"><b>Evening</b><span>25 min</span></span><span class="gen__bar"><i style="--v: 50%"></i></span></li>
+                <li><span class="gen__row"><b>After 9 pm</b><span>15 min</span></span><span class="gen__bar"><i style="--v: 30%"></i></span></li>
+              </ul>
+            </div>
+          </template>
+
+          <template data-ask="plan">
+            <p class="chat__you">Make me a study plan for my Physics exam in 3 weeks.</p>
+            <p class="chat__luna">You've covered about 40% of Physics and haven't opened it this week, so week one covers what's left, week two reviews your thinnest topics, and week three is timed practice. It's all in your mornings, when your sessions run longest.</p>
+            <div class="gen">
+              <p class="gen__title">Physics exam in 21 days</p>
+              <ul class="gen__log">
+                <li><span class="gen__when">Week 1</span><span><b>Cover what's left</b><small>Waves, electricity, magnetism · 5 morning sessions</small></span></li>
+                <li><span class="gen__when">Week 2</span><span><b>Review your thinnest topics</b><small>Optics, thermodynamics · 5 sessions</small></span></li>
+                <li><span class="gen__when">Week 3</span><span><b>Practice exams</b><small>2 timed exams, then a final review · 4 sessions</small></span></li>
+              </ul>
+              <p class="gen__actions"><span class="gen__btn">Start week 1</span><span class="gen__btn gen__btn--quiet">Adjust the plan</span></p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HOW IT WORKS: ambient capture -->
+    <section class="band" id="how">
+      <div class="wrap ambient">
+        <div class="ambient__text">
+          <h2 class="band__title ambient__title"><span>Quiet while you study.</span> <span class="hero__soft">Ready when you're done.</span></h2>
+          <p class="band__lede">
+            Put on your smart glasses, or stand your iPhone up beside your work, and start a session.
+            SmartSight quietly notes what's in front of you, so your attention stays on the page.
+            When you stop, your quiz and tomorrow's plan are waiting.
+          </p>
+
+          <ol class="ambient__steps">
+            <li><span class="ambient__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2"/><path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2"/></svg></span><span><b>Put on your glasses</b>Smart glasses, or your iPhone camera.</span></li>
+            <li><span class="ambient__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span><span><b>Start a session</b>One tap in the app, or set a focus timer.</span></li>
+            <li><span class="ambient__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span><span><b>Study the way you already do</b>SmartSight follows along in the background.</span></li>
+          </ol>
+        </div>
+
+        <div class="ambient__visual">
+          <figure class="phone ambient__phone"><img loading="lazy" src="assets/screens/focus-live.webp?v=2" width="660" height="1435" alt="Focus Mode in the app: a 25 minute session with a live view from the glasses" /></figure>
+
+          <div class="log" id="log" aria-label="Example of what SmartSight notes during one session">
+            <p class="log__head"><span class="log__dot" aria-hidden="true"></span>Noted this session</p>
+            <ol class="log__list">
+              <li><time>8:10</time><span>Session started</span></li>
+              <li><time>8:12</time><span><b>Calculus › Chain rule</b><small>Textbook page</small></span></li>
+              <li><time>8:24</time><span><b>Calculus › Chain rule</b><small>Lecture slides on your laptop</small></span></li>
+              <li><time>8:37</time><span><b>Calculus › Implicit differentiation</b><small>Textbook page</small></span></li>
+              <li><time>8:51</time><span><b>Calculus › Practice problems</b><small>Printed problem sheet</small></span></li>
+              <li class="log__end"><time>9:00</time><span><b>50 minutes of Calculus, logged</b><small>Quiz ready from these pages. Tomorrow's plan updated.</small></span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PRIVACY -->
+    <section class="band band--ink" id="privacy">
+      <div class="wrap">
+        <h2 class="band__title pv-title"><span class="pv-title__lock"><svg class="" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>Private by design.</h2>
+        <p class="band__lede">
+          SmartSight reads your pages on your iPhone, with Apple's on-device text recognition.
+          The photo stays on your phone. Only the text is sent to us.
         </p>
 
-        <!-- CTA buttons -->
-        <div class="hero__ctas" id="download">
-          <a href="#waitlist" class="btn-waitlist btn-waitlist--hero">
-            <span class="btn-waitlist__shimmer"></span>
-            <span class="btn-waitlist__text">✦ Join the Waiting List</span>
-          </a>
-          <span class="btn-download btn-download--muted">
-            <svg viewBox="0 0 14 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11.8 8.4c0-2.1 1.7-3.1 1.8-3.2-1-1.5-2.5-1.7-3-1.7-1.3-.1-2.5.8-3.1.8-.7 0-1.7-.7-2.8-.7C3.2 3.6 1.5 4.7 1.5 8.5c0 1.2.4 2.4 1 3.4.7 1 1.4 2 2.4 2 1 0 1.3-.6 2.5-.6s1.5.6 2.5.6 1.7-1 2.3-2c.5-.7.7-1.4.7-1.4 0 0-1.1-.5-1.1-2.1zM9.8 2.4c.5-.6.8-1.5.7-2.4C9.7 0 8.7.6 8.1 1.2c-.5.6-.9 1.5-.8 2.3.9.1 1.9-.4 2.5-1.1z"/>
-            </svg>
-            iOS App — coming soon
-          </span>
+        <div class="pv" id="leak">
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+            <symbol id="desk-scene" viewBox="0 0 320 220">
+              <rect width="320" height="220" fill="#6A5240"/>
+              <rect x="0" y="0" width="320" height="220" fill="url(#desk-grain)" opacity=".35"/>
+              <defs><pattern id="desk-grain" width="320" height="14" patternUnits="userSpaceOnUse"><rect width="320" height="1.5" y="6" fill="#5A4433"/></pattern></defs>
+              <g transform="rotate(-8 37 173)"><rect x="14" y="150" width="46" height="46" rx="2" fill="#F2D65C"/><rect x="21" y="162" width="30" height="3" fill="#C9A83A"/><rect x="21" y="170" width="24" height="3" fill="#C9A83A"/></g>
+              <circle cx="284" cy="40" r="23" fill="#ECE6DA"/><circle cx="284" cy="40" r="16" fill="#7A5038"/><rect x="304" y="34" width="12" height="12" rx="5" fill="none" stroke="#ECE6DA" stroke-width="4"/>
+              <g transform="rotate(-24 272 186)"><rect x="226" y="182" width="78" height="8" rx="2" fill="#E8B83A"/><rect x="226" y="182" width="10" height="8" rx="2" fill="#E07A7A"/><polygon points="304,182 316,186 304,190" fill="#F3D9A8"/><polygon points="312,184.6 316,186 312,187.4" fill="#333"/></g>
+              <rect x="60" y="28" width="206" height="172" rx="6" fill="#000" opacity=".28"/>
+              <rect x="56" y="22" width="104" height="170" rx="3" fill="#F6F3EC"/>
+              <rect x="160" y="22" width="104" height="170" rx="3" fill="#FBF9F4"/>
+              <rect x="159" y="22" width="2" height="170" fill="#D8D2C4"/>
+              <rect x="171" y="95" width="82" height="9" fill="#F7E36A"/>
+              <ellipse cx="108" cy="128" rx="34" ry="20" fill="#BFE5CF" stroke="#2E6A4C" stroke-width="2"/>
+              <path d="M80 128 q6 -12 12 0 t12 0 t12 0 t12 0" fill="none" stroke="#2E6A4C" stroke-width="2"/>
+              <rect x="68" y="36" width="72" height="9" rx="1" fill="#232323"/><rect x="68" y="54" width="80" height="4" rx="1" fill="#8E8A80"/><rect x="68" y="63" width="76" height="4" rx="1" fill="#8E8A80"/><rect x="68" y="72" width="80" height="4" rx="1" fill="#8E8A80"/><rect x="68" y="81" width="62" height="4" rx="1" fill="#8E8A80"/><rect x="68" y="164" width="60" height="3" rx="1" fill="#8E8A80"/><rect x="68" y="172" width="48" height="3" rx="1" fill="#8E8A80"/><rect x="172" y="36" width="46" height="7" rx="1" fill="#232323"/><rect x="172" y="50.0" width="80" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="59.5" width="78" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="69.0" width="80" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="78.5" width="74" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="88.0" width="80" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="97.5" width="52" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="107.0" width="80" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="116.5" width="77" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="126.0" width="80" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="135.5" width="70" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="145.0" width="80" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="154.5" width="79" height="4" rx="1" fill="#8E8A80"/><rect x="172" y="164.0" width="64" height="4" rx="1" fill="#8E8A80"/>
+            </symbol>
+          </svg>
+          <div class="pv__zone" aria-hidden="true"></div>
+          <p class="pv__zone-label"><span class="lock" aria-hidden="true"></span>Stays on your devices</p>
+          <div class="pv__server" aria-hidden="true"></div>
+          <p class="pv__server-label"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>SmartSight servers</p>
+
+          <p class="pv__t pv__t--1"><span class="pv__num"><svg class="" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2"/><path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2"/></svg></span>Glasses take a photo</p>
+          <p class="pv__t pv__t--2"><span class="pv__num"><svg class="" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span>iPhone reads the text</p>
+          <p class="pv__t pv__t--3"><span class="pv__num"><svg class="" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span>Only the words are sent</p>
+
+          <div class="pv__photo"><svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" role="img" aria-label="An open textbook on a desk with a mug, a pencil and a sticky note"><use href="#desk-scene"/></svg></div>
+          <span class="pv__go pv__go--1" aria-hidden="true"></span>
+          <div class="pv__iphone"><div class="pv__screen">
+            <svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" role="img" aria-label="The same photo on the iPhone, with each line of text outlined as it is recognised"><use href="#desk-scene"/><g class="pv__boxes"><rect class="pv-box" x="66" y="34" width="76" height="13" rx="1.5" style="--t:0.16"/><rect class="pv-box" x="66" y="52" width="84" height="8" rx="1.5" style="--t:0.25"/><rect class="pv-box" x="66" y="61" width="80" height="8" rx="1.5" style="--t:0.29"/><rect class="pv-box" x="66" y="70" width="84" height="8" rx="1.5" style="--t:0.33"/><rect class="pv-box" x="66" y="79" width="66" height="8" rx="1.5" style="--t:0.37"/><rect class="pv-box" x="66" y="162" width="64" height="7" rx="1.5" style="--t:0.75"/><rect class="pv-box" x="66" y="170" width="52" height="7" rx="1.5" style="--t:0.78"/><rect class="pv-box" x="170" y="34" width="50" height="11" rx="1.5" style="--t:0.16"/><rect class="pv-box" x="170" y="48.0" width="84" height="8" rx="1.5" style="--t:0.23"/><rect class="pv-box" x="170" y="57.5" width="82" height="8" rx="1.5" style="--t:0.27"/><rect class="pv-box" x="170" y="67.0" width="84" height="8" rx="1.5" style="--t:0.31"/><rect class="pv-box" x="170" y="76.5" width="78" height="8" rx="1.5" style="--t:0.36"/><rect class="pv-box" x="170" y="86.0" width="84" height="8" rx="1.5" style="--t:0.40"/><rect class="pv-box" x="170" y="95.5" width="56" height="8" rx="1.5" style="--t:0.44"/><rect class="pv-box" x="170" y="105.0" width="84" height="8" rx="1.5" style="--t:0.49"/><rect class="pv-box" x="170" y="114.5" width="81" height="8" rx="1.5" style="--t:0.53"/><rect class="pv-box" x="170" y="124.0" width="84" height="8" rx="1.5" style="--t:0.57"/><rect class="pv-box" x="170" y="133.5" width="74" height="8" rx="1.5" style="--t:0.62"/><rect class="pv-box" x="170" y="143.0" width="84" height="8" rx="1.5" style="--t:0.66"/><rect class="pv-box" x="170" y="152.5" width="83" height="8" rx="1.5" style="--t:0.70"/><rect class="pv-box" x="170" y="162.0" width="68" height="8" rx="1.5" style="--t:0.75"/></g></svg>
+            <span class="pv__scan" aria-hidden="true"></span>
+          </div></div>
+          <span class="pv__go pv__go--2" aria-hidden="true"><span>Text only</span></span>
+          <div class="pv__text">
+            <p class="pv__text-h">Cellular Respiration</p>
+            <p>Converts the chemical energy in glucose into ATP, the cell's energy currency.</p>
+            <p class="pv__text-h">Glycolysis</p>
+            <p>The first stage, in the cytosol…</p>
+          </div>
+
+          <p class="pv__zone-note">The photo, and everything in it, stays on your phone. It's deleted after 7 days unless you bookmark it.</p>
+          <div class="pv__after">
+            <p class="pv__note">SmartSight uses the words to file the page under its topic and write your quizzes.</p>
+          </div>
         </div>
 
-
-      </div>
-    </section>
-
-
-    <!-- ============================================
-         MANIFESTO SECTION
-         ============================================ -->
-    <section class="manifesto">
-      <div class="manifesto__inner">
-        <p class="section-label fade-up">Our Manifesto</p>
-
-        <div class="manifesto__text">
-          <p class="fade-up" data-delay="0">
-            Students are drowning in tracking apps.<br/>
-            Every tool built to help you study<br/>
-            demands more of your attention.
-          </p>
-          <p class="fade-up" data-delay="200">
-            SmartSight was built on one idea:<br/>
-            your coach should come to you<br/>
-            without you logging everything.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ============================================
-         FEATURES SECTION
-         ============================================ -->
-    <section class="features" id="features">
-      <div class="features__inner">
-        <p class="section-label fade-up">Built for how you actually study</p>
-
-        <div class="features__grid">
-          <!-- Feature 1: Passive Capture -->
-          <div class="feature-card fade-up" data-delay="0">
-            <span class="feature-card__icon">
-              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="16" cy="16" r="13" stroke="#18358C" stroke-width="1.8"/>
-                <circle cx="16" cy="16" r="6" stroke="#F2911B" stroke-width="1.8"/>
-                <circle cx="16" cy="16" r="2" fill="#18358C"/>
-              </svg>
-            </span>
-            <h3 class="feature-card__title">Passive Capture</h3>
-            <p class="feature-card__desc">Glasses quietly photograph your notes as you study.</p>
-          </div>
-
-          <!-- Feature 2: AI Coaching -->
-          <div class="feature-card fade-up" data-delay="100">
-            <span class="feature-card__icon">
-              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 3C11 3 7 8 7 12.5c0 3.5 1.8 6.2 4.5 8V25a1.5 1.5 0 001.5 1.5h6A1.5 1.5 0 0020.5 25v-4.5C23.2 18.7 25 16 25 12.5 25 8 21 3 16 3z" stroke="#18358C" stroke-width="1.8" fill="none"/>
-                <path d="M12.5 27h7M13.5 29.5h5" stroke="#F2911B" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <h3 class="feature-card__title">AI Coaching</h3>
-            <p class="feature-card__desc">Personalized study analysis and next steps based on your gaps.</p>
-          </div>
-
-          <!-- Feature 3: Flashcard + Quiz Gen -->
-          <div class="feature-card fade-up" data-delay="200">
-            <span class="feature-card__icon">
-              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="5" y="7" width="16" height="20" rx="2.5" stroke="#18358C" stroke-width="1.8" fill="none"/>
-                <rect x="11" y="3" width="16" height="20" rx="2.5" stroke="#F2911B" stroke-width="1.5" fill="none" opacity="0.45"/>
-                <line x1="9" y1="14" x2="17" y2="14" stroke="#18358C" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="9" y1="18" x2="15" y2="18" stroke="#18358C" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-              </svg>
-            </span>
-            <h3 class="feature-card__title">Flashcard + Quiz Gen</h3>
-            <p class="feature-card__desc">Auto-generated from your actual study material.</p>
-          </div>
-
-          <!-- Feature 4: Screen-Free Flow -->
-          <div class="feature-card fade-up" data-delay="300">
-            <span class="feature-card__icon">
-              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 8h20M6 13h14M6 18h17M6 23h11" stroke="#18358C" stroke-width="1.8" stroke-linecap="round"/>
-                <circle cx="26" cy="23" r="4" fill="#F2911B" opacity="0.2" stroke="#F2911B" stroke-width="1.6"/>
-                <path d="M24.5 23l1 1 2-2" stroke="#F25C05" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <h3 class="feature-card__title">Study Story</h3>
-            <p class="feature-card__desc">Your study habits woven into one timeline, so you always know where you stand.</p>
-          </div>
+        <div class="pv-never">
+          <p class="pv-never__title">Never sent</p>
+          <ul class="pv__never">
+            <li>The photo</li>
+            <li>Faces and hands</li>
+            <li>Your desk and room</li>
+          </ul>
         </div>
       </div>
     </section>
 
 
-    <!-- ============================================
-         PHONE APP SHOWCASE SECTION
-         ============================================ -->
-    <section class="app-showcase" id="app">
-      <div class="app-showcase__inner">
+    <!-- FEATURES -->
+    <section class="band" id="features">
+      <div class="wrap">
+        <h2 class="band__title">What's in the app</h2>
+        <p class="band__lede">Every screen below is the shipping iPhone app, shown with a sample student's data.</p>
 
-        <!-- Text + chips -->
-        <div class="app-showcase__text">
-          <p class="section-label fade-up">Meet Luna.AI</p>
-          <h2 class="app-showcase__headline fade-up" data-delay="80">Your AI coach, always in your pocket</h2>
-          <p class="app-showcase__sub fade-up" data-delay="160">
-            Luna.AI translates everything SmartSight captures into personalized coaching, quizzes, and progress tracking.
-          </p>
+        <!-- Icons: Lucide (ISC License, Copyright (c) Lucide Contributors) -->
+        <nav class="fx" aria-label="Features">
+          <a class="fx__item" href="#f-live"><span class="fx__icon fx__icon--live"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span><span class="fx__text"><b>Live coaching</b><span>Ask about the page you're on</span></span></a>
+          <a class="fx__item" href="#f-luna"><span class="fx__icon fx__icon--luna"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></span><span class="fx__text"><b>Luna</b><span>Ask your coach anything</span></span></a>
+          <a class="fx__item" href="#f-plan"><span class="fx__icon fx__icon--plan"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="fx__text"><b>Daily plan</b><span>Today's to-do, picked for you</span></span></a>
+          <a class="fx__item" href="#f-vault"><span class="fx__icon fx__icon--vault"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><span class="fx__text"><b>Knowledge Vault</b><span>Every page, filed by topic</span></span></a>
+          <a class="fx__item" href="#f-quiz"><span class="fx__icon fx__icon--quiz"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span class="fx__text"><b>Quizzes and flashcards</b><span>Made from what you read</span></span></a>
+        </nav>
 
-          <div class="app-showcase__chips">
-            <span class="chip">📋 Session Summary</span>
-            <span class="chip">🔥 Streak Tracking</span>
-            <span class="chip">🧠 Behavior Analysis Insights</span>
+        <article id="f-live" class="feature feature--flip">
+          <div class="feature__text">
+            <p class="feature__kicker"><span class="feature__icon feature__icon--live"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span>Live coaching</p>
+            <h3>Ask Luna about the page you're on</h3>
+            <p>Mid-session, just say "Hey Luna." She already knows what's on your page, so "explain this" or "quiz me on this" needs no setup, and "highlight this" saves the page for later. Then she goes quiet again.</p>
+            <ul class="feature__points">
+              <li>Hands-free, through your glasses or your phone</li>
+              <li>Knows the text on the page you're reading</li>
+              <li>Speaks only when you ask</li>
+            </ul>
           </div>
-        </div>
-
-        <!-- Phone mockup -->
-        <div class="app-showcase__phone-wrapper">
-          <div class="phone-frame">
-            <div class="phone-frame__notch"></div>
-            <div class="phone-frame__screen" style="background: url('assets/Screenshot 2026-03-29 at 00.08.58.png') center/cover no-repeat;">
-            </div>
-            <div class="phone-frame__bar"></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ============================================
-         TESTIMONIALS SECTION
-         ============================================ -->
-    <section class="testimonials">
-      <div class="testimonials__inner">
-        <p class="section-label fade-up">What Students Say</p>
-
-        <div class="testimonials__grid">
-          <!-- Testimonial 1 -->
-          <article class="testimonial-card fade-up" data-delay="0">
-            <span class="testimonial-card__quote-mark">&ldquo;</span>
-            <p class="testimonial-card__body">
-              SmartSight completely changed how I study for the MCAT. I don't have to think about what to review next.
-            </p>
-            <p class="testimonial-card__author">— Priya K., MCAT Candidate</p>
-          </article>
-
-          <!-- Testimonial 2 -->
-          <article class="testimonial-card fade-up" data-delay="120">
-            <span class="testimonial-card__quote-mark">&ldquo;</span>
-            <p class="testimonial-card__body">
-              I was skeptical about AI coaching but within a week my quiz scores went up. It actually knows what I need.
-            </p>
-            <p class="testimonial-card__author">— James T., Pre-Med Student</p>
-          </article>
-
-          <!-- Testimonial 3 -->
-          <article class="testimonial-card fade-up" data-delay="240">
-            <span class="testimonial-card__quote-mark">&ldquo;</span>
-            <p class="testimonial-card__body">
-              The glasses make it feel like the future. No more staring at my phone between study blocks.
-            </p>
-            <p class="testimonial-card__author">— Mia L., High School Senior</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================
-         ABOUT US SECTION
-         ============================================ -->
-    <section class="about-us" id="about">
-      <div class="about-us__inner">
-        <p class="section-label fade-up">About Us</p>
-
-        <div class="about-us__layout">
-
-          <!-- Left: photo + caption -->
-          <div class="about-us__image-wrap fade-up" data-delay="80">
-            <img src="assets/group.jpeg" alt="The SmartSight team at MIT Reality Hack 2026" class="about-us__image" />
-            <p class="about-us__caption">
-              From left to right:
-              <a href="https://www.linkedin.com/in/jaydendecambre/" target="_blank" rel="noopener">Jayden Decambre</a>,
-              <a href="https://www.linkedin.com/in/dongckim99/" target="_blank" rel="noopener">Dongchan Kim</a>,
-              <a href="https://www.linkedin.com/in/hyunseok-hwang/" target="_blank" rel="noopener">Hyunseok Hwang</a>,
-              <a href="https://www.linkedin.com/in/xiaofan-sylvan-shen/" target="_blank" rel="noopener">Xiaofan (Sylvan) Shen</a>,
-              <a href="https://www.linkedin.com/in/vivian-xin-shu/" target="_blank" rel="noopener">Vivian Xin Shu</a>
-            </p>
-          </div>
-
-          <!-- Right: text -->
-          <div class="about-us__body">
-            <p class="about-us__para fade-up" data-delay="100">
-              SmartSight's team first came together during MIT Reality Hack 2026, where our prototype using Meta Ray-Ban AI glasses received the Grand Prize and the Meta Wearables Track Award.
-            </p>
-            <p class="about-us__para fade-up" data-delay="200">
-              Our team is interdisciplinary, bringing together expertise in AI systems, learning science, immersive technologies, and product design. Members include Stanford Computer Science and Harvard LDIT graduate alumni, with industry experience spanning AWS, Bloomberg, and AI/XR startups. This combination allows us to translate research insights into practical, buildable products.
-            </p>
-            <p class="about-us__para fade-up" data-delay="300">
-              Many of us personally experienced studying with limited feedback and support. SmartSight grew from that shared experience and a simple belief: wearable AI can deliver the kind of personalized guidance that once required expensive tutoring. Our mission is to build a scalable tool that expands access to effective learning support for everyone.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================
-         CONTACT US SECTION
-         ============================================ -->
-    <!-- ============================================
-         WAITLIST SECTION
-         ============================================ -->
-    <section class="waitlist" id="waitlist">
-      <div class="waitlist__inner">
-        <p class="section-label fade-up">Join the Waiting List</p>
-        <form class="waitlist__form fade-up" data-delay="240" action="https://formspree.io/f/mpqkaynj" method="POST">
-          <div class="waitlist__row">
-            <div class="waitlist__field">
-              <label for="wl-name">Name</label>
-              <input type="text" id="wl-name" name="name" placeholder="Your name" required />
-            </div>
-            <div class="waitlist__field">
-              <label for="wl-title">Title</label>
-              <input type="text" id="wl-title" name="title" placeholder="e.g. Pre-Med Student" />
+          <div class="feature__phones feature__phones--voice">
+            <figure class="phone"><img loading="lazy" src="assets/screens/session-running.webp?v=2" width="660" height="1435" alt="A focus session running in the app, with the glasses connected" /></figure>
+            <div class="voice" aria-label="Example of a spoken exchange with Luna during a session">
+              <p class="voice__head"><span class="voice__wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Talking with Luna</p>
+              <ol class="voice__lines">
+                <li class="voice__you">"Hey Luna, explain this."</li>
+                <li class="voice__luna">"That's the chain rule: differentiate the outside, then multiply by the inside's derivative. Want an example?"</li>
+                <li class="voice__you">"Quiz me on this page."</li>
+                <li class="voice__luna">"Okay. What's the derivative of sin(x²)?"</li>
+                <li class="voice__you">"Highlight this."</li>
+                <li class="voice__luna">"Got it, highlighted."</li>
+              </ol>
             </div>
           </div>
-          <div class="waitlist__field">
-            <label for="wl-email">Email Address</label>
-            <input type="email" id="wl-email" name="email" placeholder="you@example.com" required />
+        </article>
+
+        <article id="f-luna" class="feature">
+          <div class="feature__text">
+            <p class="feature__kicker"><span class="feature__icon feature__icon--luna"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></span>Luna</p>
+            <h3>Luna, the coach who knows what you studied</h3>
+            <p>Say "Hey Luna" or type in the app. Luna knows what you've studied and how you've scored, so "What should I do today?" gets a specific answer, and "Quiz me" starts one on the spot.</p>
+            <ul class="feature__points">
+              <li>Voice or text</li>
+              <li>Answers come with cards: your plan, your week, what you know</li>
+              <li>Quizzes, flashcards and step-by-step explanations inside the chat</li>
+            </ul>
           </div>
-          <div class="waitlist__field">
-            <label for="wl-comments">Comments <span class="waitlist__optional">(optional)</span></label>
-            <textarea id="wl-comments" name="comments" placeholder="Anything you'd like us to know..." rows="4"></textarea>
+          <div class="feature__phones">
+            <figure class="phone"><img loading="lazy" src="assets/screens/luna-week.webp?v=2" width="660" height="1435" alt="Luna reflecting on the week: 12 sessions, 15 hours 21 minutes, 6 of 7 days studied" /></figure>
+            <figure class="phone"><img loading="lazy" src="assets/screens/luna-last-plan.webp?v=2" width="660" height="1435" alt="Asked how the last plan went, Luna shows a card of what improved" /></figure>
           </div>
-          <button type="submit" class="waitlist__submit">
-            <span class="btn-waitlist__shimmer"></span>
-            <span>✦ Submit</span>
-          </button>
+        </article>
+
+        <article id="f-plan" class="feature feature--flip">
+          <div class="feature__text">
+            <p class="feature__kicker"><span class="feature__icon feature__icon--plan"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span>Daily plan</p>
+            <h3>A plan for today, written from your own results</h3>
+            <p>SmartSight picks the next few things to do and says why: the topic you score lowest on, the question you missed, the cards that are due. Finish them and it shows what moved.</p>
+            <ul class="feature__points">
+              <li>Countdown to your exam date</li>
+              <li>A note on how your last plan went</li>
+              <li>Streaks, levels and achievements that track real work</li>
+            </ul>
+          </div>
+          <div class="feature__phones">
+            <figure class="phone"><img loading="lazy" src="assets/screens/home-plan-done.webp?v=3" width="660" height="1435" alt="Home screen with today's plan finished and every task ticked off" /></figure>
+            <figure class="phone"><img loading="lazy" src="assets/screens/profile.webp?v=2" width="660" height="1435" alt="Profile with level 11, a 31 day streak and all eight achievements" /></figure>
+          </div>
+        </article>
+
+        <article id="f-vault" class="feature">
+          <div class="feature__text">
+            <p class="feature__kicker"><span class="feature__icon feature__icon--vault"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>Knowledge Vault</p>
+            <h3>Knowledge Vault: everything you've read, sorted</h3>
+            <p>Pages are filed under the right subject and topic as you study them. Open any topic to see how much of it you've covered, how long you've spent, and what to practise.</p>
+            <ul class="feature__points">
+              <li>Progress for every subject, with weak ones flagged as Focus</li>
+              <li>Bookmark a passage and it's saved with its topic</li>
+            </ul>
+          </div>
+          <div class="feature__phones">
+            <figure class="phone"><img loading="lazy" src="assets/screens/topic-detail.webp?v=2" width="660" height="1435" alt="Physics topic page: 47 percent complete, 4 hours 13 minutes studied, with quiz and flashcard buttons" /></figure>
+            <figure class="phone"><img loading="lazy" src="assets/screens/bookmarks.webp?v=2" width="660" height="1435" alt="Sixteen saved items, including immune system and electric circuits notes" /></figure>
+          </div>
+        </article>
+
+        <article id="f-quiz" class="feature feature--wide">
+          <div class="feature__text">
+            <p class="feature__kicker"><span class="feature__icon feature__icon--quiz"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>Quizzes and flashcards</p>
+            <h3>Quizzes and flashcards made from your pages</h3>
+            <p>Questions are written from the material you actually studied, in exam style, with an explanation after every answer. Flashcards come back when they're due, including the ones you got wrong.</p>
+          </div>
+          <div class="feature__phones feature__phones--three">
+            <figure class="phone"><img loading="lazy" src="assets/screens/quiz-feedback.webp?v=2" width="660" height="1435" alt="A quiz question answered correctly, with an explanation" /></figure>
+            <figure class="phone"><img loading="lazy" src="assets/screens/flashcard.webp?v=2" width="660" height="1435" alt="Flashcard from your session asking why aldehydes and ketones have lower boiling points than alcohols" /></figure>
+            <figure class="phone"><img loading="lazy" src="assets/screens/flashcard-answer.webp?v=2" width="660" height="1435" alt="Flashcard answer with Still learning and Knew it buttons" /></figure>
+          </div>
+        </article>
+      </div>
+
+    </section>
+
+
+    <!-- STATUS -->
+    <section class="band band--tint" id="status">
+      <div class="wrap">
+        <h2 class="band__title">Tested with 25 MCAT students and a public beta before launch</h2>
+        <p class="band__lede">SmartSight started as a prototype. It has since been through a pilot and a public beta with people studying for a real exam.</p>
+
+        <ol class="timeline">
+          <li class="timeline__item is-done">
+            <h3>Prototype</h3>
+            <p>Grand Prize and the Meta Wearables Track award at MIT Reality Hack 2026.</p>
+          </li>
+          <li class="timeline__item is-done">
+            <h3>Pilot complete</h3>
+            <p>25 MCAT students studied with SmartSight during the pilot.</p>
+          </li>
+          <li class="timeline__item is-done">
+            <h3>Public beta closed</h3>
+          </li>
+          <li class="timeline__item is-next">
+            <h3>App Store launch</h3>
+            <p>Next. <a href="#launch">Join the launch list</a> and we'll email you when it's live.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- TEAM -->
+    <section class="band" id="team">
+      <div class="wrap team">
+        <figure class="team__photo">
+          <img loading="lazy" src="assets/team.jpg?v=2" width="1306" height="912" alt="The five SmartSight founders at MIT Reality Hack 2026" />
+          <figcaption>
+            Left to right:
+            <a href="https://www.linkedin.com/in/jaydendecambre/" target="_blank" rel="noopener">Jayden Decambre</a>,
+            <a href="https://www.linkedin.com/in/dongckim99/" target="_blank" rel="noopener">Dongchan Kim</a>,
+            <a href="https://www.linkedin.com/in/hyunseok-hwang/" target="_blank" rel="noopener">Hyunseok Hwang</a>,
+            <a href="https://www.linkedin.com/in/xiaofan-sylvan-shen/" target="_blank" rel="noopener">Xiaofan (Sylvan) Shen</a>,
+            <a href="https://www.linkedin.com/in/vivian-xin-shu/" target="_blank" rel="noopener">Vivian Xin Shu</a>
+          </figcaption>
+        </figure>
+        <div class="team__text">
+          <h2 class="band__title">Who's building it</h2>
+          <p>We're five people from AI systems, learning science, immersive tech and product design: Stanford Computer Science and Harvard LDIT alumni, with time at AWS, Bloomberg and AI and XR startups.</p>
+          <p>Most of us studied for big exams with little feedback and no tutor. SmartSight is the coach we wanted then: one that sees what you actually studied and tells you what to do about it.</p>
+          <p><a href="mailto:hello@getsmartsight.com">hello@getsmartsight.com</a></p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- LAUNCH LIST -->
+    <section class="band band--ink launch" id="launch">
+      <div class="wrap launch__inner">
+        <div>
+          <h2 class="band__title">Be there on launch day</h2>
+          <p class="band__lede">SmartSight is an iPhone app. Leave your email and we'll send one message when it's on the App Store, or <a class="launch__tf" href="https://testflight.apple.com/join/REPLACE_ME" target="_blank" rel="noopener">try it now on TestFlight</a>.</p>
+        </div>
+
+        <form class="form" id="launch-form" action="https://formspree.io/f/mzdyvljl" method="POST" novalidate>
+          <div class="form__field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="f-name">Name <span>(optional)</span></label>
+              <input type="text" id="f-name" name="name" autocomplete="name" />
+            </div>
+            <div class="form__field">
+              <label for="f-exam">Studying for <span>(optional)</span></label>
+              <input type="text" id="f-exam" name="title" placeholder="MCAT, LSAT, finals…" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn--light">Join the launch list</button>
+          <p class="form__msg" id="form-msg" role="status" aria-live="polite"></p>
         </form>
-
-        <p class="waitlist__success" id="waitlist-success">You're on the list! We'll be in touch soon.</p>
-      </div>
-    </section>
-
-
-    <section class="contact" id="contact">
-      <div class="contact__inner">
-        <h2 class="contact__headline fade-up">Get in touch</h2>
-        <p class="contact__text fade-up" data-delay="160">
-          Have questions, feedback, or just want to say hello?
-        </p>
-        <a href="mailto:hello@getsmartsight.com" class="contact__email fade-up" data-delay="240">
-          hello@getsmartsight.com
-        </a>
       </div>
     </section>
 
   </main>
 
-  <!-- ============================================
-       FOOTER
-       ============================================ -->
   <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__row">
-        <span class="footer__logo">SmartSight</span>
-        <ul class="footer__links">
-          <li><a href="#features" class="footer__link">Features</a></li>
-          <li><a href="#about" class="footer__link">About</a></li>
-          <li><a href="#contact" class="footer__link">Contact</a></li>
-          <li><a href="privacy.html" class="footer__link">Privacy</a></li>
-        </ul>
-      </div>
-      <p class="footer__copy">&copy; 2026 SmartSight. All rights reserved.</p>
+    <div class="wrap footer__inner">
+      <a href="#top" class="nav__brand">
+        <img src="assets/logo-mark.png" alt="" width="18" height="28" />
+        <span>SmartSight</span>
+      </a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#features">Features</a>
+        <a href="#privacy">How privacy works</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="mailto:hello@getsmartsight.com">Contact</a>
+      </nav>
+      <p class="footer__copy">&copy; 2026 SmartSight. Meta is a trademark of its owner. SmartSight is not affiliated with Meta.</p>
     </div>
   </footer>
 

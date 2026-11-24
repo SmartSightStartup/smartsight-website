@@ -1,136 +1,139 @@
-/* ============================================
-   SmartSight — Main JavaScript
-   Nav, scroll effects, IntersectionObserver
-   ============================================ */
+// SmartSight launch site: sticky-nav border, privacy diagram reveal, launch-list form.
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* ------------------------------------------
-     PAGE LOAD — trigger hero stagger
-     ------------------------------------------ */
-  requestAnimationFrame(() => {
-    document.body.classList.add('loaded');
-  });
-
-
-  /* ------------------------------------------
-     NAV — Frosted glass on scroll
-     ------------------------------------------ */
   const nav = document.querySelector('.nav');
-
-  const handleNavScroll = () => {
-    if (window.scrollY > 40) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  };
-
-  window.addEventListener('scroll', handleNavScroll, { passive: true });
-
-
-  /* ------------------------------------------
-     SCROLL-TRIGGERED FADE-UPS
-     Generic observer for any .fade-up element
-     ------------------------------------------ */
-  const fadeEls = document.querySelectorAll('.fade-up');
-
-  if (fadeEls.length > 0) {
-    const fadeObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Apply stagger delay from data attribute if present
-            const delay = entry.target.dataset.delay || 0;
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-            }, Number(delay));
-            fadeObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    fadeEls.forEach(el => fadeObserver.observe(el));
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
-
-  /* ------------------------------------------
-     PHONE MOCKUP — Slide up on scroll
-     ------------------------------------------ */
-  const phoneWrapper = document.querySelector('.app-showcase__phone-wrapper');
-
-  if (phoneWrapper) {
-    const phoneObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            phoneObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    phoneObserver.observe(phoneWrapper);
-  }
-
-
-  /* ------------------------------------------
-     CHIPS — Staggered appear on scroll
-     ------------------------------------------ */
-  const chips = document.querySelectorAll('.chip');
-
-  if (chips.length > 0) {
-    const chipObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Array.from(chips).indexOf(entry.target);
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-            }, 200 + index * 150);
-            chipObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    chips.forEach(chip => chipObserver.observe(chip));
-  }
-
-
-  /* ------------------------------------------
-     WAITLIST FORM — AJAX submit via Formspree
-     ------------------------------------------ */
-  const waitlistForm = document.querySelector('.waitlist__form');
-  const waitlistSuccess = document.getElementById('waitlist-success');
-
-  if (waitlistForm && waitlistSuccess) {
-    waitlistForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(waitlistForm);
-
-      try {
-        const res = await fetch(waitlistForm.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          waitlistForm.style.display = 'none';
-          waitlistSuccess.classList.add('visible');
-        } else {
-          alert('Something went wrong. Please try again.');
+  // One-time reveals: the session log and the privacy diagram.
+  for (const leak of [document.getElementById('leak'), document.getElementById('log')]) {
+    if (!leak) continue;
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          leak.classList.add('is-in');
+          io.disconnect();
         }
+      }, { threshold: 0.4 });
+      io.observe(leak);
+    } else {
+      leak.classList.add('is-in');
+    }
+  }
+
+  // Ask Luna: each chip swaps in a question, Luna's reply and the card she builds for it.
+  const ask = document.getElementById('ask');
+  const body = document.getElementById('ask-body');
+  if (ask && body) {
+    const chips = [...ask.querySelectorAll('.ask__chip')];
+    const answers = { today: body.innerHTML };
+    for (const t of ask.querySelectorAll('template[data-ask]')) answers[t.dataset.ask] = t.innerHTML;
+
+    // Hold the chat at the height of its longest answer so switching questions doesn't move the page.
+    const fit = () => {
+      body.style.minHeight = '';
+      let tallest = 0;
+      for (const html of Object.values(answers)) {
+        body.innerHTML = html;
+        tallest = Math.max(tallest, body.offsetHeight);
+      }
+      body.style.minHeight = `${tallest}px`;
+    };
+    const current = () => chips.find((c) => c.getAttribute('aria-pressed') === 'true')?.dataset.ask || 'today';
+    fit();
+    body.innerHTML = answers[current()];
+    // Lexend loads after the page, and changes line breaks: measure again once it's in.
+    document.fonts?.ready.then(() => {
+      fit();
+      if (ask.classList.contains('is-playing')) play(current());
+      else body.innerHTML = answers[current()];
+    });
+    let lastWidth = window.innerWidth;
+    window.addEventListener('resize', () => {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      fit();
+      if (ask.classList.contains('is-playing')) play(current());
+      else body.innerHTML = answers[current()];
+    });
+
+    const play = (key) => {
+      body.innerHTML = answers[key];
+      const reply = body.querySelector('.chat__luna');
+      let words = 0;
+      if (reply) {
+        const parts = reply.textContent.trim().split(/\s+/);
+        words = parts.length;
+        reply.innerHTML = parts.map((w, i) => `<span class="w" style="--i:${i}">${w}</span>`).join(' ');
+      }
+      const step = words > 40 ? 0.026 : 0.038;
+      reply?.style.setProperty('--step', `${step}s`);
+      const genAt = 0.45 + words * step + 0.25;
+      for (const g of body.querySelectorAll('.gen')) g.style.setProperty('--gen-at', `${genAt.toFixed(2)}s`);
+      for (const list of body.querySelectorAll('.gen ul, .gen ol, .gen dl')) {
+        [...list.children].forEach((el, n) => el.style.setProperty('--n', n));
+      }
+      ask.classList.remove('is-playing');
+      void ask.offsetWidth; // restart the animations
+      ask.classList.add('is-playing');
+    };
+
+    for (const chip of chips) {
+      chip.addEventListener('click', () => {
+        for (const c of chips) c.setAttribute('aria-pressed', String(c === chip));
+        chip.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        play(chip.dataset.ask);
+      });
+    }
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          play(current());
+          io.disconnect();
+        }
+      }, { threshold: 0.35 });
+      io.observe(ask);
+    }
+  }
+
+  const form = document.getElementById('launch-form');
+  const msg = document.getElementById('form-msg');
+  if (form && msg) {
+    const button = form.querySelector('button[type="submit"]');
+    const say = (text, isError) => {
+      msg.textContent = text;
+      msg.classList.toggle('is-error', Boolean(isError));
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.elements.email;
+      if (!email.value.trim() || !email.checkValidity()) {
+        say('Enter a valid email address to join the launch list.', true);
+        email.focus();
+        return;
+      }
+
+      button.disabled = true;
+      say('Adding you to the launch list…');
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        say("You're on the launch list. We'll email you when SmartSight is on the App Store.");
       } catch {
-        alert('Network error. Please try again.');
+        say("That didn't go through. Check your connection and try again, or email hello@getsmartsight.com.", true);
+      } finally {
+        button.disabled = false;
       }
     });
   }
-
 });
