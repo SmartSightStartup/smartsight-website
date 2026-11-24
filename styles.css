@@ -497,13 +497,7 @@ a { color: inherit; }
   .pv__after { grid-column: 1; grid-row: 11; }
 }
 
-.ledger { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: clamp(48px, 7vw, 88px); }
-.ledger h3 { padding-bottom: 14px; border-bottom: 1px solid #3A3A3F; font-size: 1.15rem; letter-spacing: -.01em; }
-.ledger li { position: relative; margin-top: 14px; padding-left: 20px; color: #D5D6DA; }
-.ledger li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 2px; background: var(--green-soft); }
-.ledger__link { display: inline-block; margin-top: 20px; color: var(--green-soft); font-weight: 600; }
 
-@media (max-width: 760px) { .ledger { grid-template-columns: 1fr; } }
 
 /* ---------- Features ---------- */
 
