@@ -18,7 +18,7 @@
 
   --wrap: 1180px;
   --gutter: clamp(20px, 5vw, 48px);
-  --band: clamp(72px, 10vw, 136px);
+  --band: clamp(56px, 7vw, 100px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -487,18 +487,20 @@ a { color: inherit; }
   .pv__zone-label { grid-column: 1; grid-row: 1; }
   .pv__t--1 { grid-column: 1; grid-row: 2; }
   .pv__photo { grid-column: 1; grid-row: 3; height: auto; aspect-ratio: 32 / 22; }
-  .pv__go--1 { grid-column: 1; grid-row: 4; justify-self: start; margin-left: 12px; width: 2px; height: 22px; }
+  .pv__go--1 { grid-column: 1; grid-row: 4; justify-self: start; margin-left: 14px; width: 2px; height: 22px; }
   .pv__go--1::before { width: 2px; height: 22px; }
-  .pv__go--1::after, .pv__go--2::after { display: none; }
+  /* Arrowheads point down on narrow screens */
+  .pv__go--1::after, .pv__go--2::after { right: auto; left: -4px; bottom: 1px; rotate: 135deg; }
   .pv__t--2 { grid-column: 1; grid-row: 5; }
   .pv__iphone { grid-column: 1; grid-row: 6; height: auto; }
   .pv__screen { height: auto; aspect-ratio: 32 / 22; }
   .pv__zone-note { grid-column: 1; grid-row: 7; padding-bottom: 4px; }
+  /* Runs from the bottom edge of the green box to the top edge of the servers box. */
   .pv__go--2 {
-    grid-column: 1; grid-row: 8; justify-self: start; display: flex; align-items: center; gap: 12px;
-    width: auto; margin: calc(var(--pad) + 6px) 0 0 12px;
+    grid-column: 1; grid-row: 8; justify-self: start; display: flex; align-items: center; gap: 14px;
+    width: auto; margin: calc(var(--pad) - 14px) 0 calc(var(--pad) - 14px) 14px;
   }
-  .pv__go--2::before { order: 0; width: 2px; height: 40px; margin: 0; }
+  .pv__go--2::before { order: 0; flex: none; width: 2px; height: 52px; margin: 0; }
   .pv__server { grid-column: 1; grid-row: 9 / 13; margin-bottom: calc(-1 * var(--pad)); }
   .pv__server-label { grid-column: 1; grid-row: 9; }
   .pv__t--3 { grid-column: 1; grid-row: 10; }
@@ -548,9 +550,13 @@ a { color: inherit; }
 
 .feature {
   display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
-  align-items: center; gap: clamp(28px, 6vw, 88px);
-  margin-top: clamp(64px, 9vw, 128px);
+  align-items: start; gap: clamp(28px, 6vw, 88px);
+  margin-top: clamp(40px, 5vw, 72px);
 }
+/* Line the kicker up with the top of the first screenshot inside the tinted box. */
+.feature__text { padding-top: clamp(20px, 4vw, 48px); }
+.feature--wide .feature__text { padding-top: 0; }
+.feature__text > .feature__kicker { margin-top: 0; }
 .feature--flip .feature__text { order: 2; }
 .feature--wide { grid-template-columns: 1fr; }
 .feature--wide .feature__text { max-width: 44em; }
@@ -558,8 +564,6 @@ a { color: inherit; }
 .feature h3 { font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 600; line-height: 1.08; letter-spacing: -.03em; text-wrap: balance; }
 .feature__text > p { margin-top: 16px; color: var(--ink-2); max-width: 34em; }
 .feature--wide .feature__text > p { max-width: 40em; }
-.feature__points { margin-top: 22px; border-top: 1px solid var(--line); }
-.feature__points li { padding: 12px 0; border-bottom: 1px solid var(--line); }
 
 .feature__phones {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start;
@@ -599,6 +603,7 @@ a { color: inherit; }
 @media (max-width: 860px) {
   .feature { grid-template-columns: 1fr; }
   .feature--flip .feature__text { order: 0; }
+  .feature__text { padding-top: 0; }
   .feature__phones--three { padding-inline: clamp(14px, 3vw, 32px); gap: 10px; }
 }
 
