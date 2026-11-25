@@ -696,3 +696,51 @@ a { color: inherit; }
 .hero__platform { display: flex; align-items: center; gap: 8px; margin-top: 14px; color: var(--ink-2); font-size: .95rem; }
 .hero__platform svg { flex: none; }
 .launch__tf { color: var(--green-soft); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Pilot voices (rolling quotes) ---------- */
+
+.voices {
+  margin-top: clamp(48px, 7vw, 88px);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.voices__track { display: flex; width: max-content; }
+.voices__list { display: flex; gap: 32px; padding: 4px 16px; margin: 0; list-style: none; }
+.pq {
+  flex: 0 0 auto;
+  width: 320px;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
+  padding: 32px 30px 28px;
+  background: var(--card);
+  border-radius: 22px;
+}
+.pq--s { width: 270px; }
+.pq--l { width: 420px; }
+.pq blockquote {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  letter-spacing: -.005em;
+  color: var(--ink);
+}
+.pq blockquote::before { content: "\201C"; }
+.pq blockquote::after { content: "\201D"; }
+.pq__who { font-size: .85rem; line-height: 1.4; color: var(--ink-2); }
+.pq__name { display: block; font-weight: 500; color: var(--ink); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .voices__track { animation: voices-roll 90s linear infinite; }
+  .voices:hover .voices__track,
+  .voices:focus-within .voices__track { animation-play-state: paused; }
+}
+@keyframes voices-roll { to { transform: translateX(-50%); } }
+
+@media (max-width: 560px) {
+  .pq { width: 270px; } .pq--s { width: 220px; } .pq--l { width: 310px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voices { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .voices__list--copy { display: none; }
+}
