@@ -266,17 +266,11 @@ a { color: inherit; }
 
 .said__note { margin-top: 18px; font-size: .9rem; color: #BFDCCB; }
 
-/* Motion: the question appears, Luna's words write themselves in, then the card arrives and catches the light. */
+/* Motion: the question appears, Luna's words write themselves in, then the card rises in and its rows follow. */
 @media (prefers-reduced-motion: no-preference) {
   .ask.is-playing .chat__you { animation: rise .4s cubic-bezier(.2, .7, .2, 1) both; }
   .ask.is-playing .chat__luna .w { opacity: 0; animation: word .35s ease forwards; animation-delay: calc(.45s + var(--i) * var(--step, 38ms)); }
-  .ask.is-playing .gen { animation: rise .6s cubic-bezier(.2, .7, .2, 1) both, glow 1.6s ease-out; animation-delay: var(--gen-at), var(--gen-at); }
-  .ask.is-playing .gen::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(105deg, transparent 25%, rgba(143, 209, 172, .75) 44%, rgba(220, 245, 230, .95) 50%, rgba(143, 209, 172, .75) 56%, transparent 75%);
-    transform: translateX(-110%); animation: sweep 1.1s ease-in-out both; animation-delay: calc(var(--gen-at) + .25s);
-  }
-  .ask.is-playing .gen__title::before { animation: twinkle .9s ease-out both; animation-delay: calc(var(--gen-at) + .2s); }
+  .ask.is-playing .gen { animation: rise .5s cubic-bezier(.2, .7, .2, 1) both; animation-delay: var(--gen-at); }
   .ask.is-playing .gen__bar i { animation: fill .9s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--gen-at) + .3s); }
   .ask.is-playing .gen__tasks li,
   .ask.is-playing .gen__stats div,
@@ -287,14 +281,7 @@ a { color: inherit; }
 }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 @keyframes word { to { opacity: 1; } }
-@keyframes sweep { to { transform: translateX(110%); } }
 @keyframes fill { from { width: 0; } }
-@keyframes twinkle { 0% { transform: scale(0) rotate(-90deg); } 60% { transform: scale(1.6) rotate(10deg); } 100% { transform: none; } }
-@keyframes glow {
-  0%, 30% { box-shadow: 0 0 0 0 rgba(143, 209, 172, 0); border-color: var(--line); }
-  45% { box-shadow: 0 0 0 5px rgba(143, 209, 172, .8), 0 0 56px 8px rgba(191, 229, 207, .75); border-color: var(--green); }
-  100% { box-shadow: 0 0 0 0 rgba(143, 209, 172, 0); border-color: var(--line); }
-}
 
 @media (max-width: 860px) {
   .thesis { grid-template-columns: minmax(0, 1fr); }
